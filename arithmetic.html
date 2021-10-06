@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>looping computation</title>
+</head>
+
+<body>
+
+    <h2>Narender Reddy Palle computes</h2>
+
+    <form>
+        <label for="base">Enter a base </label>
+        <input type="number" id="base" name="base" min=10 max=50 step=2 value=10> <br>
+
+        <label for="exponent">Enter an exponent</label>
+        <input type="number" id="exponent" name="exponent" autofocus value=2> <br>
+
+        <input type="button" onclick="powers()" value="Compute">
+    </form>
+
+
+    <p id="result">This text will be replaced </p>
+
+    <script>
+
+        function powers() {
+            result = "";
+            power = 1;
+            console.log("Getting form values")
+            base = document.getElementById("base").value
+            exponent = document.getElementById("exponent").value
+            for (i = 0; i < exponent; i++) {
+                power = power * base;
+                result = result + " " + power;
+            }
+
+            out = document.getElementById("result")
+            if (result != null) {
+                out.innerHTML = "powers  of base are :" + result;
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

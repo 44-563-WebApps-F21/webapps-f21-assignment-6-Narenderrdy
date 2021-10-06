@@ -33,19 +33,16 @@
             phrase = document.getElementById("phrase").value
             out = document.getElementById("result")
 
-
             if (secretPhrase == phrase) {
                 correct++;
                 alert("Access allowed");
                 out.innerHTML = "correct :" + correct + " wrong :" + wrong;
             }
-
             else {
                 wrong++;
                 alert("Access denied");
                 out.innerHTML = "wrong :" + wrong + "correct :" + correct;
             }
-
         }
 
     </script>
@@ -69,7 +66,6 @@
                     document.getElementById("myimage").src = "peacock.jpg"
                     usingImage++;
                     break;
-
             }
         }
     </script>
