@@ -16,17 +16,29 @@
         <label for="exponent">Enter an exponent</label>
         <input type="number" id="exponent" name="exponent" autofocus value=2> <br>
 
-        <input type="button" onclick="powers()" value="Compute">
+        <input type="button" onclick="powers()" value="Compute"> <br>
+
+
+
     </form>
-
-
     <p id="result">This text will be replaced </p>
+    <form>
+
+        <input type="radio" onclick="processRadio(this.value)" name="type" value="plus"> + <br>
+
+        <input type="radio" onclick="processRadio(this.value)" name="type" value="minus"> - <br>
+
+        <input type="radio" onclick="processRadio(this.value)" name="type" value="times"> * <br>
+
+        <input type="radio" onclick="processRadio(this.value)" name="type" value="divide"> / <br>
+
+    </form>
 
     <script>
 
         function powers() {
-            result = "";
-            power = 1;
+            let result = "";
+            let power = 1;
             console.log("Getting form values")
             base = document.getElementById("base").value
             exponent = document.getElementById("exponent").value
@@ -35,14 +47,45 @@
                 result = result + " " + power;
             }
 
-            out = document.getElementById("result")
-            if (result != null) {
-                out.innerHTML = "powers  of base are :" + result;
-            }
+            out = document.getElementById("result").innerHTML = "powers  of base are :" + result;
+
 
         }
     </script>
+    <p id="res">This text will be replaced </p>
+    <script>
 
+        box = 0;
+
+
+        function processRadio(type) {
+            bas = document.getElementById("base").value
+            exp = document.getElementById("exponent").value
+            document.getElementById("res").value
+
+            bas1 = parseInt(base);
+            exp1 = parseInt(exponent);
+
+
+            switch (type) {
+                case 'plus':
+                    box = bas1 + exp1;
+                    break;
+                case 'minus':
+                    box = bas1 - exp1;
+                    break;
+                case 'times':
+                    box = bas1 * exp1;
+                    break;
+                case 'divide':
+                    box = bas1 / exp1;
+            }
+            resultbox = document.getElementById('res')
+            resultbox.innerHTML = "Result of " + bas1 + " " + type + " " + exp1 + "  is:  " + box
+
+        }
+
+    </script>
 </body>
 
 </html>
