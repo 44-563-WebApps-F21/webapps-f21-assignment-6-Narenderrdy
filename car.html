@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>checkboxes</title>
+</head>
+
+<body>
+
+    <h2>Narender Reddy Palle orders a car</h2>
+    <div>
+        <form>
+            <input type="checkbox" id="auto1" name="auto" value="electric">
+            <label for="electric">electric</label></br>
+
+            <input type="checkbox" id="auto2" name="auto" value="ac">
+            <label for="ac">ac</label></br>
+
+            <input type="checkbox" id="auto3" name="auto" value="gps">
+            <label for="gps">gps</label><br>
+
+            <input type="button" onclick="orderCar()" value="Order a car">
+
+        </form>
+    </div>
+    <form>
+        <label for="text">Enter a property</label>
+        <input type="text" id="text1" name="text1" value="color"><br>
+
+        <label for="text">Enter a value</label>
+        <input type="text" id="text2" name="text2"><br>
+
+        <input type="button" onclick="updateCar()" value="Update the car">
+
+        <p id="Resultofcar">This text will be replaced </p><br>
+    </form>
+
+
+    <script>
+        my_car = {};
+        function orderCar() {
+            my_car = {}
+            first = document.getElementById("auto1").checked
+            second = document.getElementById("auto2").checked
+            third = document.getElementById("auto3").checked
+            out = document.getElementById("Resultofcar")
+            first ? my_car["electric"] = true : my_car["electric"] = false
+            second ? my_car["ac"] = true : my_car["ac"] = false
+            third ? my_car["gps"] = true : my_car["gps"] = false
+            my_car = JSON.stringify(my_car)
+            out.innerHTML = my_car
+            my_car = JSON.parse(my_car)
+        }
+    </script>
+    <script>
+        function updateCar() {
+            text1 = document.getElementById("text1").value
+            text2 = document.getElementById("text2").value
+            my_car[text1] = text2
+            document.getElementById("Resultofcar").innerHTML = JSON.stringify(my_car)
+            console.log(my_car)
+        }
+    </script>
+</body>
+
+</html>
