@@ -6,17 +6,17 @@
 </head>
 
 <body>
-    <h1>Pass phraseby Narender Reddy Palle</h1>
-    <h2>Getting input</h2>
+    <h1 style=color:orange>Pass phraseby Narender Reddy Palle</h1>
+    <h2 style=color:red>Getting input</h2>
 
     <form>
-        <label for="secretPhrase">Enter the secret phrase </label>
+        <label for="secretPhrase"> <b>Enter the secret phrase </b></label>
         <input type="password" id="secretPhrase" name="secretPhrase" min=10 max=50 step=2 value="Let me in"> <br>
 
-        <label for="phrase">Enter a phrase </label>
+        <label for="phrase"><b>Enter a phrase </b></label>
         <input type="text" id="phrase" name="phrase" autofocus> <br>
 
-        <input type="button" onclick="processPhrase()" value="Check the phrase">
+        <input type="button" style="background-color: chartreuse;" onclick="processPhrase()" value="Check the phrase">
 
         <p id="result">This text will be replaced </p>
 
@@ -26,6 +26,7 @@
     <script>
         let correct = 0;
         let wrong = 0;
+        let ac = 0;
         function processPhrase() {
             console.log("Getting form values")
 
@@ -43,6 +44,10 @@
                 alert("Access denied");
                 out.innerHTML = "wrong :" + wrong + "correct :" + correct;
             }
+            if (wrong > 3) {
+                alert("Account locked");
+            }
+
         }
 
     </script>
